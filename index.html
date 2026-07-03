@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ссылки Домика</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #0d0d11; /* Базовый темный цвет */
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Эффект переливающейся радуги на фоне */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #ff3333, #ff8833, #ffff33, #33ff33, #3333ff, #8833ff, #ff33ff);
+            background-size: 400% 400%;
+            animation: rainbowBg 12s ease infinite;
+            opacity: 0.15; /* Затемнение радуги для комфорта глаз */
+            z-index: 0;
+        }
+
+        @keyframes rainbowBg {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Главный контейнер по центру */
+        .container {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            background: rgba(20, 20, 25, 0.7);
+            padding: 40px 50px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            max-width: 450px;
+            width: 90%;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+        }
+
+        .links-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        /* Стиль для кнопки Твича */
+        .twitch-btn {
+            display: block;
+            padding: 14px 20px;
+            background: #6441a5; /* Фирменный цвет Twitch */
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(100, 65, 165, 0.4);
+        }
+
+        .twitch-btn:hover {
+            transform: translateY(-3px);
+            background: #7d5bbe;
+            box-shadow: 0 8px 25px rgba(100, 65, 165, 0.7);
+        }
+
+        .twitch-btn:active {
+            transform: translateY(-1px);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Ссылки Домика</h1>
+        <div class="links-list">
+            <a href="https://www.twitch.tv/domik_xdx" target="_blank" class="twitch-btn">
+                Twitch: domik_xdx
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>
