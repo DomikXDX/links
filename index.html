@@ -12,89 +12,102 @@
         }
 
         body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: #0d0d11; /* Базовый темный цвет */
-            color: #ffffff;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            overflow: hidden;
-            position: relative;
-        }
-
-        /* Эффект переливающейся радуги на фоне */
-        body::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, #ff3333, #ff8833, #ffff33, #33ff33, #3333ff, #8833ff, #ff33ff);
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            color: #ffffff;
+            /* Тёмная основа с насыщенными неоновыми оттенками радуги */
+            background: linear-gradient(45deg, #15001a, #000b1a, #001a11, #1a1600, #1a0000);
             background-size: 400% 400%;
-            animation: rainbowBg 12s ease infinite;
-            opacity: 0.15; /* Затемнение радуги для комфорта глаз */
-            z-index: 0;
+            /* Плавное переливание радуги */
+            animation: darkRainbow 12s ease infinite;
+            overflow: hidden;
         }
 
-        @keyframes rainbowBg {
+        @keyframes darkRainbow {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
 
-        /* Главный контейнер по центру */
         .container {
-            position: relative;
-            z-index: 1;
             text-align: center;
-            background: rgba(20, 20, 25, 0.7);
-            padding: 40px 50px;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 40px 40px;
             border-radius: 20px;
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-            max-width: 450px;
-            width: 90%;
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+            max-width: 90%;
+            width: 400px;
         }
 
         h1 {
-            font-size: 2.2rem;
-            margin-bottom: 30px;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            text-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+            font-size: 2.3rem;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
         }
 
-        .links-list {
+        .link-card {
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 15px; /* Отступ между кнопками */
+            align-items: center;
         }
 
-        /* Стиль для кнопки Твича */
-        .twitch-btn {
+        /* Общие стили для всех кнопок */
+        .btn {
             display: block;
-            padding: 14px 20px;
-            background: #6441a5; /* Фирменный цвет Twitch */
-            color: white;
+            width: 100%;
+            padding: 14px;
+            color: #ffffff;
             text-decoration: none;
-            border-radius: 10px;
             font-size: 1.1rem;
             font-weight: 600;
+            border-radius: 10px;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(100, 65, 165, 0.4);
         }
 
-        .twitch-btn:hover {
+        .btn:hover {
             transform: translateY(-3px);
-            background: #7d5bbe;
-            box-shadow: 0 8px 25px rgba(100, 65, 165, 0.7);
         }
 
-        .twitch-btn:active {
+        .btn:active {
             transform: translateY(-1px);
+        }
+
+        /* Фирменный стиль для Twitch */
+        .twitch-btn {
+            background: #9146FF;
+            box-shadow: 0 4px 15px rgba(145, 70, 255, 0.3);
+        }
+        .twitch-btn:hover {
+            background: #772ce8;
+            box-shadow: 0 6px 20px rgba(145, 70, 255, 0.5);
+        }
+
+        /* Фирменный стиль для Discord */
+        .discord-btn {
+            background: #5865F2;
+            box-shadow: 0 4px 15px rgba(88, 101, 242, 0.3);
+        }
+        .discord-btn:hover {
+            background: #4752c4;
+            box-shadow: 0 6px 20px rgba(88, 101, 242, 0.5);
+        }
+
+        /* Фирменный стиль для DonationAlerts */
+        .donate-btn {
+            background: #FF9E00;
+            box-shadow: 0 4px 15px rgba(255, 158, 0, 0.3);
+        }
+        .donate-btn:hover {
+            background: #e68e00;
+            box-shadow: 0 6px 20px rgba(255, 158, 0, 0.5);
         }
     </style>
 </head>
@@ -102,9 +115,20 @@
 
     <div class="container">
         <h1>Ссылки Домика</h1>
-        <div class="links-list">
-            <a href="https://www.twitch.tv/domik_xdx" target="_blank" class="twitch-btn">
-                Twitch: domik_xdx
+        <div class="link-card">
+            <!-- Кнопка Twitch -->
+            <a href="https://www.twitch.tv/domik_xdx" target="_blank" class="btn twitch-btn">
+                Twitch
+            </a>
+            
+            <!-- Кнопка Discord -->
+            <a href="https://discord.gg/JbvFwmAuk" target="_blank" class="btn discord-btn">
+                Discord Сервер
+            </a>
+            
+            <!-- Кнопка Доната -->
+            <a href="https://www.donationalerts.com/r/xxx_domik_xxx" target="_blank" class="btn donate-btn">
+                Поддержать (Донат)
             </a>
         </div>
     </div>
